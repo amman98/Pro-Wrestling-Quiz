@@ -54,7 +54,7 @@ function startTimer() {
 
 // displays the next question and its possible answers to the webpage
 function displayQuestion() {
-    if(question === null) {
+    if(question === undefined) {
         isGameOver = true; // user has answered all the questions
         return;
     }
@@ -66,7 +66,7 @@ function displayQuestion() {
 
     // this loop ensures that the correct answer always appears in a random position
     for(var i = 0; i < 4; i++) {
-        if(i == randNum) {
+        if(i === randNum) {
             buttonAnswers[i].textContent = question.correctAnswer;
             continue;
         }
@@ -76,9 +76,11 @@ function displayQuestion() {
     }
 }
 
+// function called whenever user clicks on a multiple choice answer
 anyAnswer.addEventListener("click", function(event) {
-    var answer = anyAnswer.innerHTML;
-    console.log(answer);
+    var element = event.target;
+
+    var answer = element.innerHTML;
     if(answer !== question.correctAnswer) {
         if(timeLimit - 10 < 0) {
             timeLimit = 0;
@@ -89,7 +91,8 @@ anyAnswer.addEventListener("click", function(event) {
     } 
 
     // grab next question and display it to the webpage
-    question = quizQuestions.pop;
+    question = quizQuestions.pop();
+    console.log(question);
     displayQuestion();
 });
 
