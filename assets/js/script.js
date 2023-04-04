@@ -56,9 +56,10 @@ function startTimer() {
         timeLimit--;
         
         // game ends when timer runs out or user has answered every question
-        if(isGameOver || timeLimit < 0) {
+        if(isGameOver || timeLimit <= 0) {
             // end game
             clearInterval(timeInterval);
+            localStorage.setItem("score", timeLimit); // store score in local storage, so score-calculation.js can access it
             window.location.href = "./game-over.html"; // transition to game over screen
         }
     }, 1000);

@@ -11,11 +11,15 @@
   <body>
     <header>
         <p><a href="./high-score.html">View high scores</a></p>
-        <p>Time: 0</p>
+        <p>Time: <span id="time-left" class="score"></span></p>
     </header>
     <main>
         <h2>All done!</h2>
         <p>Your final score is <span id="final-score"></span>.</p>
+        <form id="score-form">
+            <input type="text" id="user-initials" />
+            <button id="submit-button">Submit</button>
+        </form>
     </main>
     <script src="./assets/js/score-calculation.js"></script>
   </body>
