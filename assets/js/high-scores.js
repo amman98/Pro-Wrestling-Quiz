@@ -8,6 +8,12 @@ var clearScores = document.querySelector("#clear-scores");
 function displayScores() {
     var allUsers = JSON.parse(localStorage.getItem("userDetails")); // grab array of user details
 
+    // 
+    if(allUsers === null) {
+        scoresList.innerHTML = "";
+        return;
+    }
+
     var iterations = allUsers.length;
     var index = 0; // look for index with greatest value
 
@@ -31,5 +37,11 @@ function displayScores() {
         iterations--;
     }
 }
+
+// clear all high scores on button click
+clearScores.addEventListener("click", function(event) {
+    localStorage.removeItem("userDetails");
+    displayScores(); // display empty list
+});
 
 displayScores(); // display scores as soon as page loads

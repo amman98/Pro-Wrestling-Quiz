@@ -20,6 +20,7 @@ function displayFinalScore(timeLimit) {
 
 // saves user's initials and score in local storage as an object
 function saveUserInfo(event) {
+    event.preventDefault();
     // checks if user redirected to this page without actually playing the game
     if(localStorage.getItem("score") !== null) {
         // checks for invalid initials, like using blank spaces
@@ -52,7 +53,7 @@ function saveUserInfo(event) {
                             allUsers[i] = userInfo;
                             localStorage.setItem("userDetails", JSON.stringify(allUsers));
                         }
-                        window.location.href = "./high-score.html"; // transition to high scores screen
+                        window.location.href = "high-score.html"; // transition to high scores screen
                         return;
                     }
                 }
@@ -62,7 +63,7 @@ function saveUserInfo(event) {
                 localStorage.setItem("userDetails", JSON.stringify(allUsers));
             }
 
-            window.location.href = "./high-score.html"; // transition to high scores screen
+            window.location.href = "high-score.html"; // transition to high scores screen
         }
         else {
 
