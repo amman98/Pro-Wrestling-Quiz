@@ -38,6 +38,7 @@ function saveUserInfo(event) {
                 localStorage.setItem("userDetails", JSON.stringify(allUsers));
             } 
             else {
+                console.log("Test");
                 // get array of user scores
                 allUsers = JSON.parse(localStorage.getItem("userDetails"));
 
@@ -45,20 +46,23 @@ function saveUserInfo(event) {
                 for(var i = 0; i < allUsers.length; i++) {
                     // if initials are the same and they set a personal best, replace their score with new one
                     if(allUsers[i].name === userInfo.name) {
+                        console.log("Welcome back user");
+                        // replace old score with new higher score
                         if(allUsers[i].score < userInfo.score) {
                             allUsers[i] = userInfo;
                             localStorage.setItem("userDetails", JSON.stringify(allUsers));
-                            return;
                         }
-                        else {
-                            return; // don't save score if it's worse than previous
-                        }
+                        window.location.href = "./high-score.html"; // transition to high scores screen
+                        return;
                     }
                 }
 
+                console.log("Another test");
                 allUsers.push(userInfo);
                 localStorage.setItem("userDetails", JSON.stringify(allUsers));
             }
+
+            window.location.href = "./high-score.html"; // transition to high scores screen
         }
         else {
 
