@@ -93,6 +93,11 @@ function displayQuestion() {
 anyAnswer.addEventListener("click", function(event) {
     var element = event.target;
 
+    // makes sure element is one of the multiple choice answers
+    if(!element.matches("button")) {
+        return;
+    }
+
     var answer = element.innerHTML;
     if(answer !== quizQuestion.correctAnswer) {
         if(timeLimit - 10 < 0) {
