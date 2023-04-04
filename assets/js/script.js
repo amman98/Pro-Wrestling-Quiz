@@ -43,7 +43,6 @@ var quizQuestions = [
 var quizQuestion = quizQuestions.pop();
 
 function startGame() {
-    console.log("start game");
     // display first question
     displayQuestion();
 
