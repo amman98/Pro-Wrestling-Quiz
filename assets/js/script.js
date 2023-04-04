@@ -10,7 +10,6 @@
 //TODO: Display if previous answer was right or wrong
 
 //TODO: If all questions are answered or timer reaches 0, transition to game over screen
-    //TODO: display final score as amount of time remaining
 
 // grab HTML elements using document object
 var timeLeft = document.querySelector("#time-left");
@@ -25,11 +24,23 @@ var isGameOver = false; // checks if player has won the game or not
 var quizQuestions = [
     {question: "John Cena won his first World Championship from ________.",
     answers: ["Randy Orton", "Triple H", "Kurt Angle"],
-    correctAnswer: "JBL"}
+    correctAnswer: "JBL"},
+    {question: "What year did The Undertaker lose his first WrestleMania match?",
+    answers: ["2010", "1997", "2017"],
+    correctAnswer: "2014"},
+    {question: "This boxer wrestled in the main event of the first ever WrestleMania:",
+    answers: ["Muhammad Ali", "Mike Tyson", "Floyd Mayweather"],
+    correctAnswer: "Mr. T"},
+    {question: "Bianca Belair defeated this person at WrestleMania 37:",
+    answers: ["Ronda Rousey", "Charlotte Flair", "Becky Lynch"],
+    correctAnswer: "Sasha Banks"},
+    {question: "WrestleMania 19 was held at this city:",
+    answers: ["Dallas, TX", "NYC", "Los Angeles, CA"],
+    correctAnswer: "Seattle, WA"}
 ];
 
 // pop last value from array and display that question to the user
-var question = quizQuestions.pop();
+var quizQuestion = quizQuestions.pop();
 
 function startGame() {
     console.log("start game");
@@ -48,18 +59,19 @@ function startTimer() {
         if(isGameOver || timeLimit < 0) {
             // end game
             clearInterval(timeInterval);
+            window.location.href = "./game-over.html"; // transition to game over screen
         }
     }, 1000);
 }
 
 // displays the next question and its possible answers to the webpage
 function displayQuestion() {
-    if(question === undefined) {
+    if(quizQuestion === undefined) {
         isGameOver = true; // user has answered all the questions
         return;
     }
 
-    gameQuestion.textContent = question.question;
+    gameQuestion.textContent = quizQuestion.question;
 
     var randNum = Math.floor(Math.random() * 4); // determines placement of right answer
     var answersIncrement = 0; // iterator for wrong answers
@@ -67,11 +79,11 @@ function displayQuestion() {
     // this loop ensures that the correct answer always appears in a random position
     for(var i = 0; i < 4; i++) {
         if(i === randNum) {
-            buttonAnswers[i].textContent = question.correctAnswer;
+            buttonAnswers[i].textContent = quizQuestion.correctAnswer;
             continue;
         }
 
-        buttonAnswers[i].textContent = question.answers[answersIncrement];
+        buttonAnswers[i].textContent = quizQuestion.answers[answersIncrement];
         answersIncrement++;
     }
 }
@@ -81,7 +93,7 @@ anyAnswer.addEventListener("click", function(event) {
     var element = event.target;
 
     var answer = element.innerHTML;
-    if(answer !== question.correctAnswer) {
+    if(answer !== quizQuestion.correctAnswer) {
         if(timeLimit - 10 < 0) {
             timeLimit = 0;
         }
@@ -91,8 +103,7 @@ anyAnswer.addEventListener("click", function(event) {
     } 
 
     // grab next question and display it to the webpage
-    question = quizQuestions.pop();
-    console.log(question);
+    quizQuestion = quizQuestions.pop();
     displayQuestion();
 });
 
