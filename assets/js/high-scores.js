@@ -29,6 +29,7 @@ function displayScores() {
         }
 
         var liEl = document.createElement("li");
+        liEl.className = "user-score";
         liEl.textContent = allUsers[index].name + "-" + allUsers[index].score;
         scoresList.append(liEl);
 

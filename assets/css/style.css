@@ -1,0 +1,39 @@
+body {
+    background-color: gray;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: salmon;
+}
+
+.main-section, footer {
+    text-align: center;
+}
+
+.answer {
+
+}
+
+#scores-list {
+}
+
+.user-score {
+    background-color: teal;
+    margin: 5px;
+}
+
+button {
+    border-radius: 10px;
+    padding: 10px;
+    margin: 24px;
+    cursor: pointer;
+    font-size: 24px;
+    background-color: purple;
+    color: white;
+}
+
+button:hover {
+    color: red;
+}
