@@ -27,10 +27,10 @@ header p {
 }
 
 /* 
-* main page of index.html
+* styling for index.html
 */
 
-#home-page {
+#home-page, #game-page {
     margin-top: 2rem;
     text-align: center;
     display: flex;
@@ -71,8 +71,14 @@ header p {
         width: 60%;
     }
 
-    #description {
+    #game-question {
         font-size: 2rem;
+        align-self: center;
+        width: 75%;
+    }
+
+    #description {
+        font-size: 1.5rem;
         align-self: center;
         width: 60%;
     }
@@ -81,6 +87,28 @@ header p {
         font-size: 2rem;
         width: 40%;
     }
+
+    .answer {
+        margin-left: 11rem;
+        width: 30%;
+    }
+}
+
+/* 
+* styling for game.html
+*/
+
+#game-question {
+    background-color: red;
+}
+
+.answer {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons {
+    margin-top: 1rem;
 }
 
 /* 
