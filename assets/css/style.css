@@ -119,6 +119,15 @@ header p {
     justify-content: center;
 }
 
+#user-form {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+#input-form {
+    display: flex;
+}
+
 #user-initials {
     margin-top: 1rem;
     margin-left: 0.5rem;
@@ -127,7 +136,6 @@ header p {
 
 #submit-button {
     background-color: red;
-
 }
 
 /* 
