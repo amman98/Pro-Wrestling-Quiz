@@ -30,7 +30,7 @@ header p {
 * styling for index.html
 */
 
-#home-page, #game-page {
+#home-page, #game-page, #game-over-page {
     margin-top: 2rem;
     text-align: center;
     display: flex;
@@ -47,7 +47,6 @@ header p {
 
 #description {
     padding-top: 10px;
-
     background-color: green;
 }
 
@@ -109,6 +108,26 @@ header p {
 
 .buttons {
     margin-top: 1rem;
+}
+
+/* 
+* styling for game-over.html
+*/
+
+#score-form {
+    display: flex;
+    justify-content: center;
+}
+
+#user-initials {
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+    height: 1rem;
+}
+
+#submit-button {
+    background-color: red;
+    
 }
 
 /* 
