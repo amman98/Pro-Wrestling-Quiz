@@ -99,8 +99,9 @@ anyAnswer.addEventListener("click", function(event) {
 
     var answer = element.innerHTML;
     if(answer !== quizQuestion.correctAnswer) {
+        // avoid negative scores
         if(timeLimit - 10 < 0) {
-            timeLimit = 0;
+            timeLimit = 1;
         }
         else {
             timeLimit -= 10; // penalize user for a wrong answer, subtracts 10 seconds from time
