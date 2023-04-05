@@ -107,7 +107,7 @@ header p {
 }
 
 .buttons {
-    margin-top: 1rem;
+    margin-top: 0.4rem;
 }
 
 /* 
@@ -127,7 +127,7 @@ header p {
 
 #submit-button {
     background-color: red;
-    
+
 }
 
 /* 
