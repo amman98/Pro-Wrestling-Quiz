@@ -1,31 +1,97 @@
+/* #home-page, #title, #description, #start-button */
+:root {
+    font-size: 24px;
+}
+
 body {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     background-color: gray;
 }
 
+/* 
+* header includes the timer and link to high score page
+*/
 header {
+    background-color: aqua;
     display: flex;
     justify-content: space-between;
+}
+
+header p {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* 
+* main page of index.html
+*/
+
+#home-page {
+    margin-top: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex: 1;
+    background-color: gray;
+}
+
+#title {
+    padding-top: 10px;
+    background-color: blue;
+}
+
+#description {
+    padding-top: 10px;
+
+    background-color: green;
+}
+
+#start-button {
+    border-radius: 10px;
+    margin-top: 2rem;
+    font-size: 1rem;
+    width: 70%;
+    height: 3rem;
+    padding-top: .3rem;
     background-color: salmon;
 }
 
-.main-section, footer {
-    text-align: center;
+/*
+* media queries for resizing screen
+*/
+@media only screen and (min-width: 768px) {
+    #title {
+        font-size: 2.5rem;
+        align-self: center;
+        width: 60%;
+    }
+
+    #description {
+        font-size: 2rem;
+        align-self: center;
+        width: 60%;
+    }
+
+    #start-button {
+        font-size: 2rem;
+        width: 40%;
+    }
 }
 
-.answer {
-
-}
-
-#scores-list {
-}
-
+/* 
+* represents the ordered list of user high scores
+*/
 .user-score {
     background-color: teal;
     margin: 5px;
 }
 
 button {
-    border-radius: 10px;
     padding: 10px;
     margin: 24px;
     cursor: pointer;
@@ -37,3 +103,8 @@ button {
 button:hover {
     color: red;
 }
+
+footer {
+    text-align: center;
+}
+
